@@ -221,6 +221,121 @@ npm install
 
 ---
 
+## Vercel Deployment
+
+Q-Generate-Me can be deployed to Vercel with zero configuration. Follow this guide to get your app live.
+
+### Prerequisites
+
+- GitHub, GitLab, or Bitbucket repository with your code
+- Vercel account (https://vercel.com)
+
+### Deployment Steps
+
+1. Push Your Code to Git Repository
+
+   ```bash
+   git add .
+   git commit -m "Prepare for Vercel deployment"
+   git push origin main
+   ```
+
+2. Create Vercel Account
+
+   - Go to https://vercel.com
+   - Sign up with GitHub, GitLab, or Bitbucket
+
+3. Import Project to Vercel
+
+   - Click "New Project" in Vercel dashboard
+   - Select your Git repository (q-generate-me)
+   - Click "Import"
+
+4. Configure Build Settings
+
+   Vercel will auto-detect Vite configuration. Verify:
+   - Framework Preset: Vite
+   - Build Command: npm run build
+   - Output Directory: dist
+   - Install Command: npm install
+
+5. Deploy
+
+   - Click "Deploy"
+   - Wait for deployment to complete (usually 1-2 minutes)
+   - Your app will be available at: https://your-project.vercel.app
+
+### Setting Environment Variables (if needed)
+
+1. Go to Project Settings > Environment Variables
+2. Add any required environment variables
+3. Redeploy by pushing to your repository
+
+### Custom Domain
+
+1. Go to Project Settings > Domains
+2. Add your custom domain
+3. Follow DNS configuration instructions
+4. Update domain records in your registrar
+
+### Automatic Deployments
+
+- Any push to main branch triggers automatic deployment
+- Pull requests get preview deployments
+- Rollback to any previous deployment from Vercel dashboard
+
+### Deployment Optimization Tips
+
+- Vercel automatically optimizes images
+- Build time is typically under 2 minutes
+- Global CDN ensures fast content delivery
+- All deployments are HTTPS secured
+
+### Troubleshooting Deployment
+
+If deployment fails:
+
+1. Check Build Logs
+   - View detailed build logs in Vercel dashboard
+   - Look for missing dependencies or build errors
+
+2. Ensure Node.js Version
+   - Vercel uses Node.js 18 by default
+   - Compatible with our project requirements
+
+3. Clear Cache and Rebuild
+   - Go to Settings > Git
+   - Select "Redeploy" on any commit
+   - Or push a new commit to trigger build
+
+4. Check Console Errors
+   - Open browser DevTools
+   - Check Console tab for runtime errors
+   - Check Network tab for failed requests
+
+### Vercel CLI (Optional)
+
+For advanced users, deploy using Vercel CLI:
+
+```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Deploy
+vercel
+
+# Deploy to production
+vercel --prod
+```
+
+### Monitor Your Deployment
+
+- Real-time analytics in Vercel dashboard
+- Performance metrics and build insights
+- Integration with GitHub for pull request previews
+
+---
+
 ## Browser Support
 
 | Browser | Desktop | Mobile |
